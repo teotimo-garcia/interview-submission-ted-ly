@@ -1,0 +1,24 @@
+Package.json - Create the file and install all the components necessary for this mini project.
+
+—-Create server folder for server side—-
+
+Database - Designed a schema that has a field for message, a field for a boolean value and a session for expire data to satisfy the condition using mongoose.
+
+Server - Used express for node server, bodyParser to parse text body from the page, Redirect view to index.html, Created endpoints for get all the messages, post a message and soft delete for a target message, Used express to load js and css folder.
+
+Test - Wrote tests for server and schema, to make sure the server response with correct status code, test database with POST and GET request and data should return the same as mock data
+
+—-Create client folder for client side(MVC)—-
+
+View - Created index.html file for main view, draw & implemented up a mock up for different component on how the page should look, Get CDN link for materialize and Angular framework for front end design, Reference javascript and css file.
+
+Controller - Created an local storage in the controller that will contain all the messages that come back from server, Implement Add/Remove/Display message function that require ajax call that will hit specific set up endpoint, Used these function hook it up to index.html
+
+Style - Used materialize library to styling the page accordingly to holiday theme
+
+I had a tough time hooking server to mongoDB using mongoose, I reconsidered of using different helper but It came through and I understood why it wasn’t working.  I almost change my whole plan how to approach this project.  Other than that, there were small fix on database for data expiration.
+
+Top 3 ideas for future versions
+- Have user login account
+- Hook web socket for real time chatting
+- Modify and turn it into a blog

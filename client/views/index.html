@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Tweeps project</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css"> 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+</head>
+<body>
+	<!-- This is our view -->
+	<div ng-controller="msgController" class="container">
+
+		<!-- Navigation bar -->
+		  <nav>
+		    <div class="nav-wrapper">
+		      <div class="brand-logo center">Happy holidays from Ted</div>
+		    </div>
+		  </nav>
+
+		 <!-- Search any message currently on view -->
+		<input type="text" placeholder="Search tweeps" class="character" ng-model="query"></input>
+
+		<!-- Body wrap -->
+		<div class="row">
+			
+			<!-- Render message -->
+			<div class="col s6">
+				<ul ng-repeat="message in messages | orderBy: sortMessage : true | filter:query">
+					<li class="text">{{message.text}}
+						<a class="btn" id="removeMessage" ng-click="removeMessage(message._id)">Delete</a>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Form to submit new message -->
+			<div class="col s6">
+				<form ng-submit="addMessage()" class="inputForm">
+					<input class="character" type="text" ng-model="message" ng-trim="false" maxlength="50"></input> <span class="character">{{50 - message.length}}/50</span>
+					<button type="submit" class="btn waves-effect waves-light">Submit 
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>
+	<script type="text/javascript" src="/js/app.js"></script>
+</body>
+</html>
